@@ -3,10 +3,12 @@ import type { Metadata } from 'next';
 import { ReactNode } from 'react';
 import { PwaRegister } from './components/pwa-register';
 
+const basePath = process.env.GITHUB_ACTIONS === 'true' ? '/ComicMemo' : '';
+
 export const metadata: Metadata = {
   title: 'Comic Memo',
   description: '漫画作画 作業管理アプリ',
-  manifest: '/manifest.json',
+  manifest: `${basePath}/manifest.json`,
 };
 
 export default function RootLayout({ children }: { children: ReactNode }) {
